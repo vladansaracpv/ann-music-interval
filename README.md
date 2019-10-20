@@ -1,1 +1,1 @@
-# Interval object methods for @ann-music-js project
+# Interval methods for @ann-music-js project

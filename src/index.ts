@@ -109,25 +109,25 @@ namespace Theory {
    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    */
 
-  /** C-major scale interval qualities. Every other interval is made from these */
+  // C-major scale interval qualities. Every other interval is made from these
   export const BASE_QUALITIES = 'PMMPPMM';
 
   /** Chroma indexes (places) of base interval types in chromatic scale */
   export const BASE_SIZES = [0, 2, 4, 5, 7, 9, 11];
 
-  /** Regular expression used to parse Augmented intervals **/
+  // Regular expression used to parse Augmented intervals
   export const AUG_REGEX = /^A+$/;
 
-  /** Regular expression used to parse Diminished intervals **/
+  // Regular expression used to parse Diminished intervals
   export const DIM_REGEX = /^d+$/;
 
-  /** Regular expression used to tokenize Interval of shape <number><quality> **/
+  // Regular expression used to tokenize Interval of shape <number><quality>
   export const TONAL_REGEX = '(?<tn>[-+]?\\d+)(?<tq>d{1,2}|m|M|P|A{1,2})';
 
-  /** Regular expression used to tokenize Interval of shape <quality><number> **/
+  // Regular expression used to tokenize Interval of shape <quality><number>
   export const QUALITY_REGEX = '(?<qq>d{1,4}|m|M|P|A{1,4})(?<qn>[-+]?\\d+)';
 
-  /** Union of previous two regular expressions **/
+  // Union of previous two regular expressions 
   export const INTERVAL_REGEX = new RegExp(`^${TONAL_REGEX}|${QUALITY_REGEX}$`);
 
   /**
@@ -155,8 +155,8 @@ namespace Theory {
 }
 
 namespace Operations {
-  function fn1() {}
-  function fn2() {}
+  function fn1() { return true }
+  function fn2() { return true }
 }
 // namespace Operations {
 //   /**
@@ -277,11 +277,12 @@ namespace Static {
   };
 
   export function build(params: IntervalBuild = { octave: 1, direction: 1 }): IntervalName {
-    let { step, alteration, octave, direction, num } = params;
+    const { step, alteration, octave, direction } = params;
+    let { num } = params;
     if (step !== undefined) num = inc(step) + 7 * dec(octave);
     if (eq(num, undefined)) return undefined;
     if (!isNumber(alteration)) return undefined;
-    let d = lt(direction, 0) ? '-' : '';
+    const d = lt(direction, 0) ? '-' : '';
     const type = Theory.BASE_QUALITIES[dec(Math.abs(num)) % 7];
     return d + num + Alteration.toQuality(type, alteration);
   }

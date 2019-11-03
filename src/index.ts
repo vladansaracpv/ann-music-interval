@@ -127,7 +127,7 @@ namespace Theory {
   // Regular expression used to tokenize Interval of shape <quality><number>
   export const QUALITY_REGEX = '(?<qq>d{1,4}|m|M|P|A{1,4})(?<qn>[-+]?\\d+)';
 
-  // Union of previous two regular expressions 
+  // Union of previous two regular expressions
   export const INTERVAL_REGEX = new RegExp(`^${TONAL_REGEX}|${QUALITY_REGEX}$`);
 
   /**
@@ -155,8 +155,12 @@ namespace Theory {
 }
 
 namespace Operations {
-  function fn1() { return true }
-  function fn2() { return true }
+  function fn1() {
+    return true;
+  }
+  function fn2() {
+    return true;
+  }
 }
 // namespace Operations {
 //   /**

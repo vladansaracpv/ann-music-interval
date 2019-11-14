@@ -136,22 +136,22 @@ namespace Theory {
   // Regular expression used to parse Augmented intervals
   export const AUG_REGEX = /^A{1,2}$/;
 
-  /** 
-   * Regular expression used to parse Diminished intervals 
+  /**
+   * Regular expression used to parse Diminished intervals
    */
   export const DIM_REGEX = /^d{1,2}$/;
 
-  /** 
-   * Regular expression used to tokenize Interval of shape <number><quality> 
+  /**
+   * Regular expression used to tokenize Interval of shape <number><quality>
    */
   export const TONAL_REGEX = '(?<tn>[-+]?\\d+)(?<tq>d{1,2}|m|M|P|A{1,2})';
 
-  /** 
-   * Regular expression used to tokenize Interval of shape <quality><number> 
+  /**
+   * Regular expression used to tokenize Interval of shape <quality><number>
    */
   export const QUALITY_REGEX = '(?<qq>d{1,4}|m|M|P|A{1,4})(?<qn>[-+]?\\d+)';
 
-  /** 
+  /**
    * Union of previous two regular expressions
    */
   export const INTERVAL_REGEX = new RegExp(`^${TONAL_REGEX}|${QUALITY_REGEX}$`);

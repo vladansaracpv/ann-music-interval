@@ -43,6 +43,6 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "ann-music-note": "^1.0.7"
+    "ann-music-note": "^1.0.9"
   }
 }

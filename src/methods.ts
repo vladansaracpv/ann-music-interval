@@ -151,11 +151,12 @@ export const property = (name: string) => (interval: IntervalName) => {
 };
 
 export function build(params: IntervalBuild = { octave: 1, direction: 1 }): IntervalName {
-  let { step, alteration, octave, direction, inumber } = params;
+  const { step, alteration, octave, direction } = params;
+  let { inumber } = params;
   if (step !== undefined) inumber = inc(step) + 7 * dec(octave);
   if (eq(inumber, undefined)) return undefined;
   if (!isNumber(alteration)) return undefined;
-  let d = lt(direction, 0) ? '-' : '';
+  const d = lt(direction, 0) ? '-' : '';
   const itype = BASE_QUALITIES[dec(Math.abs(inumber)) % 7];
   return d + inumber + Alteration.toQuality(itype, alteration);
 }

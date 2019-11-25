@@ -156,7 +156,7 @@ export function Interval({ name, width, notes, alternate = false }: IntervalInit
       return IntervalError('InvalidIvlConstructor', first, EmptyInterval) as IntervalProps;
     }
 
-    const distance = midi({ name: second }) - midi({ name: first });
+    const distance = midi(second) - midi(first);
 
     return fromDistance(distance, alternate);
   }

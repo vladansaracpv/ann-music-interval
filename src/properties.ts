@@ -8,7 +8,7 @@ import {
   BaseTypings,
 } from 'ann-music-base';
 
-import { NOTE, NoteName } from 'ann-music-note';
+import { NOTE, NoteName, Note } from 'ann-music-note';
 
 import { Num, Quality, Step, Validators } from './methods';
 
@@ -149,14 +149,8 @@ export function Interval({ name, width, notes, alternate = false }: IntervalInit
   function fromNotes(notes: NoteName[], alternate = false): IntervalProps {
     const [firstNote, secondNote] = notes;
     const midi = NOTE.property('midi');
-    const first = (isObject(firstNote) ? firstNote.name : firstNote) as NoteName;
-    const second = (isObject(secondNote) ? secondNote.name : secondNote) as NoteName;
 
-    if (!isNoteName(first) || !isNoteName(second)) {
-      return IntervalError('InvalidIvlConstructor', first, EmptyInterval) as IntervalProps;
-    }
-
-    const distance = midi(second) - midi(first);
+    const distance = midi({ name: secondNote }) - midi({ name: firstNote });
 
     return fromDistance(distance, alternate);
   }

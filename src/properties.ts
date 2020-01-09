@@ -41,7 +41,6 @@ export function Interval({ name, width, notes, alternate = false }: IntervalInit
 
   function fromName(src: IntervalName): IntervalProps {
     const tokens = tokenize(src, INTERVAL_REGEX);
-
     if (!tokens) {
       return IntervalError('InvalidIvlConstructor', src, EmptyInterval) as IntervalProps;
     }

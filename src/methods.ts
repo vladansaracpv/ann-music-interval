@@ -1,6 +1,6 @@
 import { BaseArray, BaseBoolean, BaseFunctional, BaseMaths, BaseRelations, BaseTypings } from 'ann-music-base';
 
-import { NoteName, NOTE } from '@packages/note';
+import { NoteName, NOTE } from 'ann-music-note';
 
 import {
   IntervalAlteration,

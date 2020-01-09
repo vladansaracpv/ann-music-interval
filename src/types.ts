@@ -4,7 +4,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
 
-import { NoteName } from '@packages/note';
+import { NoteName } from 'ann-music-note';
 
 /** Interval name with shape: number + quality. @example 3M */
 export type IntervalName = string;
